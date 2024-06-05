@@ -9,6 +9,8 @@ namespace edu.ExamenTerceraEvRepetido.Servicios
     internal class MenuImplementacion : MenuInterfaz
     {
         EmpleadosInterfaz ei = new EmpleadosImplementacion();
+        GerenciaInterfaz gi = new GerenciaImplementacion();
+        FicherosInterfaz fi = new FicherosImplementacion();
 
         public int MenuYSeleccionPrincipal()
         {
@@ -61,22 +63,27 @@ namespace edu.ExamenTerceraEvRepetido.Servicios
                     {
 
                         case 0:
-                            Console.WriteLine("Has seleccionado cerrar menu");
+                            Console.WriteLine("Has seleccionado volver");
+                            fi.ficheroTrazaSeleccion("ha seleccionado volver");
                             cerrarMenu = true;
                             break;
 
                         case 1:
                             Console.WriteLine("Has seleccionado calculo total de ventas diarias");
+                            
                             ei.agregarVenta();
+                            fi.ficheroTrazaSeleccion("ha seleccionado calculo total de ventas diarias");
                             break;
 
                         case 2:
-                            Console.WriteLine("Has seleccionado agrear venta");
+                            Console.WriteLine("Has seleccionado agregar venta");
+                            fi.ficheroTrazaSeleccion("ha seleccionado agregar ventas");
                             ei.calculoTVentasDiarias();
                             break;
 
                         default:
                             Console.WriteLine("La opcion indicada es incorrecta");
+                            fi.ficheroTrazaSeleccion("ha seleccionado opcion incorrecta");
                             break;
 
 
@@ -87,6 +94,7 @@ namespace edu.ExamenTerceraEvRepetido.Servicios
                 {
 
                     Console.WriteLine("Ha ocurrido un error, intentelo mas tarde");
+                    fi.ficheroErrores(String.Concat("Se ha producido un error: ", ex.Message));
                 }
 
 
@@ -132,22 +140,26 @@ namespace edu.ExamenTerceraEvRepetido.Servicios
                     {
 
                         case 0:
-                            Console.WriteLine("Has seleccionado cerrar menu");
+                            Console.WriteLine("Has seleccionado volver");
+                            fi.ficheroTrazaSeleccion("ha seleccionado volver");
                             cerrarMenu = true;
                             break;
 
                         case 1:
-                            Console.WriteLine("Has seleccionado calculo total de ventas diarias");
-
+                            Console.WriteLine("Has seleccionado mostrar en ficheros ventas del dia ");
+                            fi.ficheroTrazaSeleccion("ha seleccionado mostrar en ficheros ventas del dia");
+                            gi.mostrarVentasDia();
                             break;
 
                         case 2:
-                            Console.WriteLine("Has seleccionado agrear venta");
-
+                            Console.WriteLine("Has seleccionado nuevo pedido para proveedores");
+                            fi.ficheroTrazaSeleccion("ha seleccionado nuevo pedido para proveedores");
+                            gi.pedidoParaProveedores();
                             break;
 
                         default:
                             Console.WriteLine("La opcion indicada es incorrecta");
+                            fi.ficheroTrazaSeleccion("ha seleccionado una opcion incorrecta");
                             break;
 
 
@@ -157,7 +169,9 @@ namespace edu.ExamenTerceraEvRepetido.Servicios
                 catch (Exception ex)
                 {
 
-                    Console.WriteLine("Ha ocurrido un error, intentelo mas tarde");
+
+                    fi.ficheroErrores(String.Concat("Se ha producido un error: ", ex.Message, ";"));
+                    Console.WriteLine("Se ha producido un error, intentelo más tarde");
                 }
 
 

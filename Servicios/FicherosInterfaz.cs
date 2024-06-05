@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace edu.ExamenTerceraEvRepetido.Servicios
 {
-    internal interface GerenciaInterfaz
+    internal interface FicherosInterfaz
     {
-        public void mostrarVentasDia();
-        public void pedidoParaProveedores();
+
+        public void ficheroErrores(string mensaje);
+        public void ficheroTrazaSeleccion(string mensaje);
     }
 }

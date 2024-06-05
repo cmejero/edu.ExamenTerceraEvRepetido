@@ -14,18 +14,16 @@ namespace edu.ExamenTerceraEvRepetido.Servicios
         public void agregarVenta()
         {
 
-            VentaDto venta = new VentaDto();    
+            VentaDto venta = new VentaDto(); 
+            
             venta.IdVenta = crearId();
             Console.WriteLine("Introduzca el importe de la venta");
             venta.Euros = Convert.ToDouble(Console.ReadLine());
-            DateTime fechaActual = DateTime.Now;
-            string fechaFormateada = fechaActual.ToString("dd-MM-yyyy");
-            DateTime fechaF = DateTime.Parse(fechaFormateada);
-            venta.InstanteCompra = fechaF;
+            
 
             Program.listaVentas.Add(venta);
             
-            Console.WriteLine(fechaF.ToShortDateString());
+            
             
 
 
@@ -40,8 +38,8 @@ namespace edu.ExamenTerceraEvRepetido.Servicios
             string fechaFormateada = fechaDate.ToString("dd-MM-yyyy");
             DateTime fechaActualizada = DateTime.Parse(fechaFormateada);
 
-            TimeSpan tiempoTranscurrido;
-            Console.WriteLine(fechaActualizada.ToString());
+            
+            
             double aux = 0.00;
             List<VentaDto> listaAux = new List<VentaDto>();
 
@@ -59,14 +57,14 @@ namespace edu.ExamenTerceraEvRepetido.Servicios
 
             }
 
+
+
+
+            TimeSpan tiempoTranscurrido =  listaAux[-1].InstanteCompra - listaAux[0].InstanteCompra  ;
+
             
-           
 
-                tiempoTranscurrido = listaAux[0].InstanteCompra - listaAux[-1].InstanteCompra;
-
-            
-
-            Console.WriteLine("Total de ventas: " +aux);
+            Console.WriteLine("Total de ventas: " + aux);
             string texto = "Tiempo transcurrido";
            Console.WriteLine(String.Concat(texto,tiempoTranscurrido.ToString()));
 
@@ -81,11 +79,11 @@ namespace edu.ExamenTerceraEvRepetido.Servicios
         private long crearId()
         {
             long nuevoId;
-            int tamanioLista = Program.listaProductos.Count;
+            int tamanioLista = Program.listaVentas.Count;
 
             if(tamanioLista > 0)
             {
-                nuevoId = Program.listaProductos[tamanioLista - 1].IdProducto + 1;
+                nuevoId = Program.listaVentas[tamanioLista - 1].IdVenta + 1;
             }
             else
             {
