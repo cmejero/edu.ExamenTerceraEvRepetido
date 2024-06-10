@@ -81,7 +81,7 @@ namespace edu.ExamenTerceraEvRepetido.Servicios
 
                 Console.WriteLine(String.Concat("Producto: ", producto2.NombreProducto));
                 Console.WriteLine(String.Concat("Cantidad: ", producto2.CantidadProducto.ToString()));
-                Console.WriteLine(String.Concat("Fecha entrega: ", producto2.FechaEntrega.ToString()));
+                Console.WriteLine(String.Concat("Fecha entrega: ", producto2.FechaEntrega.ToShortDateString()));
             
             
             }

@@ -45,12 +45,14 @@ namespace edu.ExamenTerceraEvRepetido.Servicios
 
             foreach(VentaDto venta in Program.listaVentas)
             {
-                if(venta.InstanteCompra.ToShortDateString == fechaActualizada.ToShortDateString)
+                if(venta.InstanteCompra.ToShortDateString() == fechaActualizada.ToShortDateString())
                 {
+
+                    listaAux.Add(venta);
                     aux = aux + venta.Euros;
 
 
-                    listaAux.Add(venta);
+                    
 
 
                 }
@@ -59,15 +61,16 @@ namespace edu.ExamenTerceraEvRepetido.Servicios
 
 
 
+            if (listaAux.Count > 1)
+            {
+                TimeSpan tiempoTranscurrido = listaAux[listaAux.Count - 1].InstanteCompra - listaAux[0].InstanteCompra;
 
-            TimeSpan tiempoTranscurrido =  listaAux[-1].InstanteCompra - listaAux[0].InstanteCompra  ;
 
-            
 
-            Console.WriteLine("Total de ventas: " + aux);
-            string texto = "Tiempo transcurrido";
-           Console.WriteLine(String.Concat(texto,tiempoTranscurrido.ToString()));
-
+                Console.WriteLine("Total de ventas: " + aux);
+                string texto = "Tiempo transcurrido: ";
+                Console.WriteLine(String.Concat(texto, tiempoTranscurrido));
+            }
 
 
 

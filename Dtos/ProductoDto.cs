@@ -11,7 +11,7 @@ namespace edu.ExamenTerceraEvRepetido.Dtos
         long idProducto;
         string nombreProducto = "aaaaa";
         int cantidadProducto = 0;
-        DateTime fechaEntrega = new DateTime(31, 1, 1999,0,0,0);
+        DateTime fechaEntrega = new DateTime(1999,1,31);
 
         
 

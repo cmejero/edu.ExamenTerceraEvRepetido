@@ -11,7 +11,7 @@ namespace edu.ExamenTerceraEvRepetido.Controladores
     {
         public static List<ProductoDto> listaProductos = new List<ProductoDto>();
         public static List<VentaDto> listaVentas = new List<VentaDto>();
-        public static string rutaFichero = "C:\\Users\\Carlo\\OneDrive\\Escritorio\\FICHEROS\\examen3evPR\\";
+        public static string rutaFichero = "C:\\Users\\Carlos\\Desktop\\FICHEROS\\examen3evPR";
 
         public static string rutaFinal = String.Concat(rutaFichero, Util.nombreArchivo());
         public static string rutaFicheroErrores = String.Concat(rutaFichero, Util.nombreArchivoErrores());
